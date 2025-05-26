@@ -1,7 +1,11 @@
-const express = require('express')
-const app = express()
-const port = 80
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static('frontend/dist'))
+app.get('/api', (req, res) => {
+    res.json({ message: 'Привет с backend на Render!' });
+});
 
-app.listen(port, () => console.log('Server has been started on port 80...'))
+app.listen(PORT, () => {
+    console.log(`Сервер запущен на порту ${PORT}`);
+});
